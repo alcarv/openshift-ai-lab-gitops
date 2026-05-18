@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/SEU_USUARIO/openshift-ai-lab-gitops.git'
+    repoURL: 'https://github.com/alcarv/openshift-ai-lab-gitops.git'
     targetRevision: main
     path: namespaces
   destination:
