@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: lab-namespaces
+  name: nfd-instance
   namespace: openshift-gitops
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-wave: "20"
 spec:
   project: default
   source:
     repoURL: 'https://github.com/alcarv/openshift-ai-lab-gitops.git'
     targetRevision: main
-    path: namespaces
+    path: instances/nfd
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: openshift-gitops
+    namespace: openshift-nfd
   syncPolicy:
     automated:
       prune: true
@@ -27,3 +27,4 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
+      - SkipDryRunOnMissingResource=true
